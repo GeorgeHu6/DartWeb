@@ -13,12 +13,12 @@ void main() {
 Future<void> makeRequest(Event _) async {
   const path = 'portmanteaux.json';
   try {
-    // Make the GET request
+    // 发起Get请求
     final jsonString = await HttpRequest.getString(path);
-    // The request succeeded. Process the JSON.
+    // 请求成功，解析json
     processResponse(jsonString);
   } catch (e) {
-    // The GET request failed. Handle the error.
+    // 请求失败，显示错误信息
     print("Couldn't open $path");
     wordList.children.add(LIElement()..text = 'Request failed.');
   }
@@ -28,7 +28,6 @@ void processResponse(String jsonString) {
   final raw_data = json.decode(jsonString) as List<dynamic>;
   Set data = Set.from(raw_data); 
   for (final portmanteau in data) {
-    // 试试用 SET 消除重复的元素？
     wordList.children.add(LIElement()..text = portmanteau as String);
   }
 }

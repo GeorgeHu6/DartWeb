@@ -3,7 +3,7 @@
 import 'dart:html';
 import 'dart:convert';
 
-// Input fields
+// 输入域
 final InputElement favoriteNumber =
     querySelector('#favoriteNumber') as InputElement;
 final InputElement valueOfPi = querySelector('#valueOfPi') as InputElement;
@@ -16,7 +16,7 @@ final RadioButtonInputElement loveChocolate =
 final RadioButtonInputElement noLoveForChocolate =
     querySelector('#noLoveForChocolate') as RadioButtonInputElement;
 
-// Result fields to display values as JSON
+// 显示域绑定
 final TextAreaElement intAsJson =
     querySelector('#intAsJson') as TextAreaElement;
 final TextAreaElement doubleAsJson =
@@ -31,7 +31,7 @@ final TextAreaElement mapAsJson =
     querySelector('#mapAsJson') as TextAreaElement;
 
 void main() {
-  // Set up the listeners.
+  // 设置监听器
   favoriteNumber.onKeyUp.listen(_showJson);
   valueOfPi.onKeyUp.listen(_showJson);
   loveChocolate.onClick.listen(_showJson);
@@ -45,7 +45,7 @@ void main() {
   _showJson();
 }
 
-// Pre-fill the form with some default values.
+// 放一些默认的数据进去
 void _populateFromJson() {
   const jsonDataAsString = '''{
     "favoriteNumber": 73,
@@ -71,7 +71,7 @@ void _populateFromJson() {
   chocolateRadioButton.checked = true;
 }
 
-/// Display all values as JSON.
+// 显示Json
 void _showJson([Event? _]) {
   // Grab the data that will be converted to JSON.
   final favNum = int.tryParse(favoriteNumber.value ?? '');
@@ -92,7 +92,7 @@ void _showJson([Event? _]) {
     'favoriteThings': favoriteThings
   };
 
-  // Convert to JSON and display results.
+  // json编码，放到对应位置
   intAsJson.text = json.encode(favNum);
   doubleAsJson.text = json.encode(pi);
   boolAsJson.text = json.encode(chocolate);
