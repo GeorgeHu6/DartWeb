@@ -3,7 +3,7 @@
 import 'dart:html';
 import 'dart:convert';
 
-// ÊäÈëÓò
+// è¾“å…¥åŸŸ
 final InputElement favoriteNumber =
     querySelector('#favoriteNumber') as InputElement;
 final InputElement valueOfPi = querySelector('#valueOfPi') as InputElement;
@@ -16,7 +16,7 @@ final RadioButtonInputElement loveChocolate =
 final RadioButtonInputElement noLoveForChocolate =
     querySelector('#noLoveForChocolate') as RadioButtonInputElement;
 
-// ÏÔÊ¾Óò°ó¶¨
+// æ˜¾ç¤ºåŸŸç»‘å®š
 final TextAreaElement intAsJson =
     querySelector('#intAsJson') as TextAreaElement;
 final TextAreaElement doubleAsJson =
@@ -31,7 +31,7 @@ final TextAreaElement mapAsJson =
     querySelector('#mapAsJson') as TextAreaElement;
 
 void main() {
-  // ÉèÖÃ¼àÌıÆ÷
+  // è®¾ç½®ç›‘å¬å™¨
   favoriteNumber.onKeyUp.listen(_showJson);
   valueOfPi.onKeyUp.listen(_showJson);
   loveChocolate.onClick.listen(_showJson);
@@ -45,7 +45,7 @@ void main() {
   _showJson();
 }
 
-// ·ÅÒ»Ğ©Ä¬ÈÏµÄÊı¾İ½øÈ¥
+// æ”¾ä¸€äº›é»˜è®¤çš„æ•°æ®è¿›å»
 void _populateFromJson() {
   const jsonDataAsString = '''{
     "favoriteNumber": 73,
@@ -71,7 +71,7 @@ void _populateFromJson() {
   chocolateRadioButton.checked = true;
 }
 
-// ÏÔÊ¾Json
+// æ˜¾ç¤ºJson
 void _showJson([Event? _]) {
   // Grab the data that will be converted to JSON.
   final favNum = int.tryParse(favoriteNumber.value ?? '');
@@ -92,7 +92,7 @@ void _showJson([Event? _]) {
     'favoriteThings': favoriteThings
   };
 
-  // json±àÂë£¬·Åµ½¶ÔÓ¦Î»ÖÃ
+  // jsonç¼–ç ï¼Œæ”¾åˆ°å¯¹åº”ä½ç½®
   intAsJson.text = json.encode(favNum);
   doubleAsJson.text = json.encode(pi);
   boolAsJson.text = json.encode(chocolate);

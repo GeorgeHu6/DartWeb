@@ -1,4 +1,4 @@
-// （https://dart.dev/tutorials/web/fetch-data#using-getString-function）
+// 锛坔ttps://dart.dev/tutorials/web/fetch-data#using-getString-function锛�
 
 import 'dart:async';
 import 'dart:convert';
